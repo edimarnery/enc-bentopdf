@@ -1,194 +1,140 @@
 :root {
   --enc-blue: #006488;
-  --enc-blue-light: #0098c7;
-  --enc-green: #B2BC35;
-  --enc-dark: #061014;
-  --enc-dark-2: #0b2530;
-  --enc-card: rgba(255,255,255,.075);
-  --enc-border: rgba(255,255,255,.14);
-  --enc-text: rgba(255,255,255,.88);
+  --enc-blue-2: #0087b5;
+  --enc-green: #b2bc35;
+  --enc-dark: #071217;
+  --enc-card: #ffffff;
+  --enc-muted: #64748b;
+  --enc-border: #e5e7eb;
 }
 
-html { scroll-behavior: smooth; }
-
 body {
-  background:
-    radial-gradient(circle at 8% 8%, rgba(178,188,53,.22), transparent 30%),
-    radial-gradient(circle at 88% 12%, rgba(0,100,136,.48), transparent 34%),
-    linear-gradient(135deg, var(--enc-dark) 0%, #081a22 40%, var(--enc-dark-2) 70%, var(--enc-blue) 100%) !important;
-  color: var(--enc-text) !important;
+  background: #f6f8fb !important;
+  color: #0f172a !important;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 }
 
 body::before {
-  content: "";
+  content: "ENC PDF Tools";
   position: fixed;
   top: 16px;
-  left: 22px;
-  width: 170px;
-  height: 46px;
-  background: url('/enc-logo.svg') no-repeat center / contain;
+  left: 24px;
   z-index: 9999;
-  filter: drop-shadow(0 10px 22px rgba(0,0,0,.35));
+  background: linear-gradient(135deg, var(--enc-blue), var(--enc-blue-2));
+  color: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 15px;
+  box-shadow: 0 8px 24px rgba(0, 100, 136, .25);
 }
 
 body::after {
   content: "Tecnologia e inteligência artificial a serviço do seu negócio";
   position: fixed;
-  top: 66px;
-  left: 28px;
+  top: 62px;
+  left: 30px;
   z-index: 9999;
-  font: 600 11px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: rgba(255,255,255,.74);
-  max-width: 250px;
+  color: var(--enc-muted);
+  font-size: 11px;
+  font-weight: 600;
 }
 
-header, nav, #tools-header {
-  background: rgba(6,16,20,.84) !important;
-  backdrop-filter: blur(16px);
+header,
+nav {
+  background: rgba(255,255,255,.92) !important;
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--enc-border) !important;
-  box-shadow: 0 14px 40px rgba(0,0,0,.26);
+  box-shadow: 0 4px 20px rgba(15,23,42,.04);
 }
 
-main, .container, [class*="container"] { position: relative; }
+main {
+  padding-top: 70px !important;
+}
 
 h1, h2, h3, h4 {
-  color: #fff !important;
-  letter-spacing: -.035em;
+  color: #0f172a !important;
+  letter-spacing: -0.03em;
 }
 
 h1 {
-  background: linear-gradient(90deg, #fff, #e8f7ff 55%, var(--enc-green));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent !important;
+  color: var(--enc-blue) !important;
 }
 
-p, span, label, small { color: rgba(255,255,255,.82); }
-a { color: var(--enc-green) !important; }
-
-button, a[role="button"], .btn, [class*="button"] {
-  border-radius: 14px !important;
-  font-weight: 750 !important;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+p, span, label, small {
+  color: #334155 !important;
 }
 
-button:not([disabled]), a[role="button"], .bg-primary, [class*="bg-primary"] {
-  background: linear-gradient(135deg, var(--enc-blue), var(--enc-blue-light)) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,.18) !important;
+a {
+  color: var(--enc-blue) !important;
 }
 
-button:hover, a[role="button"]:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 34px rgba(0,0,0,.28);
-}
-
-.card, [class*="card"], section > div, [class*="rounded"] {
-  border-radius: 20px !important;
-}
-
-.card, [class*="card"], [class*="bg-card"], section > div {
-  background: var(--enc-card) !important;
-  border-color: var(--enc-border) !important;
-  backdrop-filter: blur(13px);
-}
-
-input, textarea, select {
-  background: rgba(255,255,255,.08) !important;
-  border: 1px solid var(--enc-border) !important;
-  color: #fff !important;
+button,
+a[role="button"],
+.btn {
   border-radius: 12px !important;
+  font-weight: 700 !important;
 }
 
-.enc-hero-banner {
-  margin: 92px auto 26px auto;
-  max-width: 1120px;
-  padding: 30px;
-  border-radius: 28px;
-  background:
-    linear-gradient(135deg, rgba(0,100,136,.42), rgba(178,188,53,.13)),
-    rgba(255,255,255,.075);
-  border: 1px solid rgba(255,255,255,.15);
-  box-shadow: 0 28px 80px rgba(0,0,0,.25);
-  backdrop-filter: blur(16px);
+button:not([disabled]),
+a[role="button"],
+.bg-primary,
+[class*="bg-primary"] {
+  background: linear-gradient(135deg, var(--enc-blue), var(--enc-blue-2)) !important;
+  color: #ffffff !important;
+  border: none !important;
 }
 
-.enc-hero-kicker {
-  color: var(--enc-green);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .11em;
-  font-size: 12px;
-  margin-bottom: 8px;
+button:hover,
+a[role="button"]:hover {
+  box-shadow: 0 10px 24px rgba(0,100,136,.22);
+  transform: translateY(-1px);
 }
 
-.enc-hero-title {
-  font-size: clamp(32px, 5vw, 58px);
-  line-height: 1;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -.05em;
-  margin: 0 0 12px 0;
+.card,
+[class*="card"],
+[class*="bg-card"],
+section > div {
+  background: #ffffff !important;
+  border: 1px solid var(--enc-border) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 28px rgba(15,23,42,.06) !important;
 }
 
-.enc-hero-text {
-  max-width: 780px;
-  color: rgba(255,255,255,.82);
-  font-size: 16px;
-  line-height: 1.65;
-  margin: 0;
+input,
+textarea,
+select {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid var(--enc-border) !important;
+  border-radius: 10px !important;
 }
-
-.enc-hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.enc-hero-tags span {
-  border: 1px solid rgba(178,188,53,.38);
-  background: rgba(178,188,53,.12);
-  color: #f5ffd4;
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-weight: 700;
-  font-size: 12px;
-}
-
-.enc-header-badge {
-  position: fixed;
-  top: 18px;
-  right: 22px;
-  z-index: 9999;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(178,188,53,.15);
-  border: 1px solid rgba(178,188,53,.36);
-  color: #fff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-}
-.enc-header-badge small { color: var(--enc-green); font-weight: 800; }
 
 footer {
+  background: #ffffff !important;
   border-top: 1px solid var(--enc-border) !important;
-  background: rgba(6,16,20,.72) !important;
 }
+
 footer::after {
   content: "ENC Network • Infraestrutura • Segurança • Cloud AWS • Automação • IA Aplicada";
   display: block;
   margin-top: 12px;
+  color: var(--enc-muted);
   font-size: 12px;
-  color: rgba(255,255,255,.62);
 }
 
 @media (max-width: 760px) {
-  body::before { width: 132px; height: 38px; left: 14px; }
-  body::after { display: none; }
-  .enc-header-badge { display: none; }
-  .enc-hero-banner { margin-top: 72px; padding: 22px; }
+  body::before {
+    position: static;
+    display: inline-block;
+    margin: 14px;
+  }
+
+  body::after {
+    display: none;
+  }
+
+  main {
+    padding-top: 20px !important;
+  }
 }
