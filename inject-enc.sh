@@ -1,14 +1,14 @@
 #!/bin/sh
 
-INDEX="/usr/share/nginx/html/index.html"
+echo "ENC: procurando arquivos HTML..."
 
-echo "ENC: aplicando tema..."
+find /usr/share/nginx/html -name "*.html" -type f | while read FILE; do
+  echo "ENC: aplicando tema em $FILE"
 
-if [ -f "$INDEX" ]; then
-  sed -i '/enc-custom.css/d' "$INDEX"
-  sed -i '/enc-brand.js/d' "$INDEX"
-  sed -i 's|</head>|<link rel="stylesheet" href="/enc-custom.css?v=enc3"><link rel="icon" href="/favicon.svg"><script defer src="/enc-brand.js?v=enc3"></script></head>|' "$INDEX"
-  echo "ENC: tema aplicado."
-else
-  echo "ENC: index.html não encontrado."
-fi
+  sed -i '/enc-custom.css/d' "$FILE"
+  sed -i '/enc-brand.js/d' "$FILE"
+
+  sed -i 's|</head>|<link rel="stylesheet" href="/enc-custom.css?v=enc10"><script defer src="/enc-brand.js?v=enc10"></script></head>|' "$FILE"
+
+  grep -q "enc-custom.css" "$FILE" && echo "ENC: OK em $FILE" || echo "ENC: FALHOU em $FILE"
+done
